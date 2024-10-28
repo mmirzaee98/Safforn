@@ -80,19 +80,14 @@ WSGI_APPLICATION = 'zafaran.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'your-database-name',  # Azure SQL database name
-        'USER': 'your-username',  # Your Azure SQL username
-        'PASSWORD': 'your-password',  # Your Azure SQL password
-        'HOST': 'your-server-name.database.windows.net',  # Azure SQL Server
-        'PORT': '1433',  # Default port for SQL Server
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',  # Ensure correct ODBC driver is installed
-            'extra_params': 'TrustServerCertificate=yes;',  # Optional, use for SSL
-        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'SaffronDB',                      
+        'USER': 'SaffronUser',
+        'PASSWORD': 'qWff$4i332',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

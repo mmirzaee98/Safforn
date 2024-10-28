@@ -1,0 +1,35 @@
+services:
+  website:
+    build:
+      context: ./website
+    entrypoint: ./entrypoint.sh
+    container_name: saffron-website
+    expose:
+      - "8000"
+    ports:
+      - 1234:8000
+    depends_on:
+      - db 
+    environment:
+      - DEBUG=True
+      - DB_NAME=SaffronDB
+      - DB_USER=SaffronUser
+      - DB_PASSWORD=qWff$4i332
+      - DB_HOST=db
+      - DB_PORT=5432
+    volumes:
+      - ./website:/app
+
+  db:
+    image: postgres:13
+    container_name: saffron-database
+    environment:
+      POSTGRES_DB: SaffronDB
+      POSTGRES_USER: SaffronUser
+      POSTGRES_PASSWORD: qWff$4i332
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+volumes:
+  postgres_data:
